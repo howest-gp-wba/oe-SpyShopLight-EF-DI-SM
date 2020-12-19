@@ -1,0 +1,60 @@
+﻿@model Wba.SpyshopActual.Web.ViewModels.CartIndexVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Shopping Cart</h1>
+<p><a asp-controller="Product" asp-action="Index">Back to Overview</a></p>
+
+        <form asp-action="UpdateCart">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Unit price</th>
+                        <th scope="col">Qty.</th>
+                        <th scope="col">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Items.Count; i++)
+                    {
+                        <tr>
+                            <th scope="row">@Model.Items[i].Name</th>
+                            <td>@Model.Items[i].UnitPrice.ToString("c2")</td>
+                            <td>
+                                <input asp-for="Items[i].Quantity" style="width:60px;" />
+                                <input type="hidden" asp-for="Items[i].ProductId" />
+                                <input type="hidden" asp-for="Items[i].Name" />
+                                <input type="hidden" asp-for="Items[i].UnitPrice" />
+                            </td>
+                            <td class="cartnumber mediumnumber"> @Model.Items[i].ProductTotal.ToString("c2")</td>
+                        </tr>
+                    }
+
+                    @if (Model.Items.Count == 0)
+                    {
+                        <tr>
+                            <td colspan="4">Your shopping cart is empty</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="2"></td>
+                            <td>
+                                <input type="submit" value="Update cart" class="btn btn-primary btn-sm" />
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td class="text-info">Total amount</td>
+                            <td class="text-info">@Model.CartTotal.ToString("c2")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </form>
+

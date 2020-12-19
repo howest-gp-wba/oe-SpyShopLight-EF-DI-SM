@@ -1,0 +1,10 @@
+﻿@model Wba.SpyshopActual.Web.ViewModels.HomeAboutVM
+
+@{
+    ViewData["Title"] = "About";
+}
+<h2>@Model.AboutTitle</h2>
+@Html.Raw(Model.AboutContent)
+
+
+<p>Click <a href="mailto:@(Model.ContactEmail)">here</a> to contact @Model.CompanyFullName </p>

@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Wba.SpyshopActual.Web.ViewModels.Components.MainNavLinkVM>
+
+    @foreach (var navlink in Model)
+    {
+    <li class="nav-item">
+        <a class="nav-link @Html.Raw(navlink.IsActive ? "active" :"")" asp-controller="@navlink.Controller" asp-action="@navlink.Action" asp-area="@navlink.Area">@navlink.Text</a>
+    </li>
+    }

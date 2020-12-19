@@ -1,0 +1,13 @@
+﻿@using Wba.SpyshopActual.Web.Constants
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@if (TempData.ContainsKey(Constants.SuccesMessage))
+{
+    <div class="alert-info">
+        @Html.Raw(TempData[Constants.SuccesMessage])
+    </div>
+
+}
