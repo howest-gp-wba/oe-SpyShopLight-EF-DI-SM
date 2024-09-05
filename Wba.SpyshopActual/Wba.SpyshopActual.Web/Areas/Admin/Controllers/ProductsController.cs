@@ -20,9 +20,9 @@ namespace Wba.SpyshopActual.Web.Areas.Admin.Controllers
     {
         private readonly IRepository<Product,int> _pRepository;
         private readonly IRepository<Category, int> _cRepository;
-        private readonly IHostingEnvironment _env;
+        private readonly IWebHostEnvironment _env;
 
-        public ProductsController(IRepository<Product,int> pRepository, IRepository<Category, int> cRepository,  IHostingEnvironment env)
+        public ProductsController(IRepository<Product,int> pRepository, IRepository<Category, int> cRepository,  IWebHostEnvironment env)
         {
             _pRepository = pRepository;
             _cRepository = cRepository;
